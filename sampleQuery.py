@@ -3,6 +3,8 @@ import pandas as pd
 import csv
 from typing import List
 import time
+
+#Virus total api key
 API_KEY = 'cc4817131321ce54c1a1448bfa89b08a2dd1c7dc17cd8424e983a2430ed249a2'
 
 API_SECRET = 'aaa9121164520836db909b63715d334d7642175f320dd435'
@@ -41,10 +43,10 @@ def get_sample_data(hash_vals: List[str]):
 
     # Save all results after loop
     df = pd.DataFrame(results)
-    df.to_json("sample_data.json", orient="records", indent=2)
+    df.to_json("alieu.json", orient="records", indent=2)
     print(f"Fetched sample data for {hash_vals}")
 
 print("Sample Query.")
-hash_values = read_hash_file("./output/hash_signature_output.csv")
+hash_values = read_hash_file("./output/alieu.csv")
 print(f"{len(hash_values)} hashes found")
 get_sample_data(hash_values)
